@@ -31,6 +31,6 @@ Than project can be viewed in the browser at:
 
 ## Screenshots
 
-![screenshot1](./icons/p1.jpg)
+![screenshot1](src/icons/p1.PNG)
 
-![screenshot2](./icons/p2.jpg)
+![screenshot2](src/icons/p2.PNG)
