@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4f26eab5-ac66-48c0-8285-b32abd036538/deploy-status)](https://app.netlify.com/sites/amrinder-myreads/deploys)
+
 # MyReads
 
 MyReads is a simple cataloging app that allows you to place books in one of three shelves or categories:
@@ -31,6 +33,8 @@ Than project can be viewed in the browser at:
 
 ## Screenshots
 
-![screenshot1](./icons/p1.jpg)
+![screenshot1](src/icons/p1.PNG)
 
-![screenshot2](./icons/p2.jpg)
+
+
+![screenshot2](src/icons/p2.PNG)
