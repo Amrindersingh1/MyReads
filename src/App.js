@@ -24,7 +24,6 @@ class BooksApp extends React.Component {
   componentDidMount() {
     BooksAPI.getAll()
       .then((books) => {
-        console.log(books);
         var crBooks = books.filter((book) => book.shelf === "currentlyReading");
         var wanttoBooks = books.filter((book) => book.shelf === "wantToRead");
         var readBooks = books.filter((book) => book.shelf === "read");
@@ -78,6 +77,7 @@ class BooksApp extends React.Component {
         if (books.error) {
           this.setState({ searchedBooks: [] });
         } else {
+          console.log(books);
           this.setState({ searchedBooks: books });
         }
       });

@@ -17,7 +17,7 @@ const  Book = ({book, moveBook}) => {
             })`,
           }}
         />
-        <MoveOption book={book} value={book.shelf} moveBook={moveBook} />
+        <MoveOption book={book} value={book.shelf?book.shelf:"none"} moveBook={moveBook} />
       </div>
       
       <div className="book-title">{book.title}</div>

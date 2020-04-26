@@ -9,7 +9,7 @@ export default class Search extends Component {
 
   handleChange = (event) => {
     const query = event.target.value;
-    this.setState({ value: query });
+    this.setState({ searchTerm: query });
     this.props.searchBooks(query);
   };
 
@@ -24,7 +24,7 @@ export default class Search extends Component {
           <div className="search-books-input-wrapper">
             <input
               type="text"
-              value={this.state.value}
+              value={this.state.searchTerm}
               placeholder="Search by title or author"
               onChange={this.handleChange}
             />
