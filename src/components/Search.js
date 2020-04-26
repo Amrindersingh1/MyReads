@@ -14,7 +14,7 @@ export default class Search extends Component {
   };
 
   render() {
-    const {moveBook} = this.props;
+    const {books,moveBook} = this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -32,7 +32,7 @@ export default class Search extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-                {this.props.books.map(book => <li key={book.id}><Book book={book} moveBook={moveBook}/></li>)}
+                {books.length > 0 ? books.map(book => <li key={book.id}><Book book={book} moveBook={moveBook}/></li>) : <center><h2>Books not found</h2></center>}
           </ol>
         </div>
       </div>

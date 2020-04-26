@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import BookShelf from "./components/BookShelf";
 import Search from "./components/Search";
 import logo from "./icons/logo.png";
+import {debounce} from 'throttle-debounce';
 
 class BooksApp extends React.Component {
   state = {
@@ -71,20 +72,29 @@ class BooksApp extends React.Component {
     }
   }
 
-  searchBooks = (query) => {
+  searchBooks = debounce(200, false, query => {
     if (query.length > 0) {
       BooksAPI.search(query).then((books) => {
         if (books.error) {
           this.setState({ searchedBooks: [] });
         } else {
-          console.log(books);
-          this.setState({ searchedBooks: books });
+          const myBooks = [...this.state.currentBooks, ...this.state.wantToBooks, ...this.state.readBooks];
+          const updatedBooks = books.map(book => {
+            myBooks.map(b => {
+              if (b.id === book.id) {
+                book.shelf = b.shelf;
+              }
+              return b;
+            });
+            return book;
+          });
+          this.setState({ searchedBooks: updatedBooks });
         }
       });
     } else {
       this.setState({ searchedBooks: [] });
     }
-  };
+  });
 
   resetSearch = () => {
     this.setState({ searchedBooks: [] });
